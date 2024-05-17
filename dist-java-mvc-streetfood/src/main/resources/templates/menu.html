@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/_header :: head('BASFC Menu')}"></div>
+<body>
+<div th:replace="~{fragments/_header :: header}"></div>
+
+<table class="menu">
+    <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Price (USD)</th>
+    </tr>
+    <tr th:each="item : ${menuItems}">
+        <td>
+            <img th:src="@{${item.imageFileName}}" th:alt="${item.name}">
+        </td>
+        <td>
+            <h3 th:text="${item.name}">NAME</h3>
+            <span th:text="${item.description}">DESCRIPTION</span>
+        </td>
+        <td>
+            <h3 th:text="${item.price}">PRICE</h3>
+        </td>
+    </tr>
+</table>
+
+<div th:replace="~{fragments/_footer :: footer}"></div>
+</body>
+</html>
